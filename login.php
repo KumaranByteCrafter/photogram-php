@@ -9,7 +9,7 @@ include "libs/load.php";
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Photogram</title>
+    <title>Login to Photogram</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/album/">
 
@@ -32,7 +32,38 @@ include "libs/load.php";
           font-size: 3.5rem;
         }
       }
-    </style>
+
+      .form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+    .form-signin .checkbox {
+    font-weight: 400;
+    }
+
+    .form-signin .form-floating:focus-within {
+    z-index: 2;
+    }
+
+    .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    }
+
+    .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    }
+</style>
+<!-- <div class="container">
+    <h1 class="mb-3">Sign in</h1>
+
+    </style> -->
 
     
   </head>
@@ -59,8 +90,7 @@ include "libs/load.php";
   <?php load_template('_header')?>
 </header>
 <main>
-<?php load_template('_calltoaction')?>
-<?php load_template('_photogram') ?>
+<?php load_template('_login')?>
 </main>
 <?php load_template('__footer') ?>
 <script src="/practice/app/assets/dist/js/bootstrap.bundle.min.js"></script>

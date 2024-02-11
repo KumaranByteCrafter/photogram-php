@@ -13,7 +13,8 @@
     
 
     <!-- Bootstrap core CSS -->
-<link href="app/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="/app/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -248,7 +249,7 @@
 </footer>
 
 
-    <script src="app/assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/app/assets/dist/js/bootstrap.bundle.min.js"></script>
 
       
   </body>

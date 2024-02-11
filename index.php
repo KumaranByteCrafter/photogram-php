@@ -248,7 +248,7 @@
 </footer>
 
 
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app/assets/dist/js/bootstrap.bundle.min.js"></script>
 
       
   </body>

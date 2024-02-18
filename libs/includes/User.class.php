@@ -1,5 +1,4 @@
 <?php
-include_once 'libs/includes/Database.class.php';
 class User
 {
     public static function signup($user,$pass,$email,$phone)

@@ -1,18 +1,28 @@
 <?php
 
-use phpDocumentor\Reflection\Types\This;
-
 class Mic
 {
-    public $brand;
+    private $brand;
     public $color;
     public $usb_port;
     public $model;
     private $light;
     public $price;
+    public static $test;
+    public static function testfunction(){
+        print("this is a static function  this can be run without object initialization");
+    }
+    public function __construct($brand)
+    {
+        printf("constructing object..");
+        $this->brand=ucwords($brand);
+        Mic::testfunction();
+    }
     public function setLight($light){
         $this->light = $light;
-        print($this->light .  "\n");
+    }
+    public function getBrand(){
+        return $this->brand;
     }
     private function getModel(){
         return $this->model;
@@ -23,5 +33,9 @@ class Mic
     }
     public function getModelproxy(){
         return $this->getModel();
+    }
+    public function __destruct()//when the file or execution end then only it destruct work
+    {
+        print("destruct object..");
     }
 }

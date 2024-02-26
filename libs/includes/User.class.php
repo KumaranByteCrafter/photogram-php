@@ -26,6 +26,5 @@ class User
     Database::disconnect();
     return $error;
     }
-   
 }
 ?>

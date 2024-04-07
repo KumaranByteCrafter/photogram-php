@@ -4,7 +4,7 @@ class User
     public static function signup($user,$pass,$email,$phone)
     {
         try {
-            $pass = md5($pass);
+            $pass = md5(strrev(md5($pass))); //security through obsecurity
             $conn = Database::getDataBaseConnection();
             // Use prepared statement to insert data
             $stmt = $conn->prepare("INSERT INTO `auth` (`username`, `password`, `email`, `phone`, `blocked`, `active`)
@@ -26,6 +26,9 @@ class User
         }
     Database::disconnect();
     return $error;
+    }
+    public static function login($user,$pass){
+
     }
 }
 ?>

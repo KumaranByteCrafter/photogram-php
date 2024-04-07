@@ -4,6 +4,7 @@ class User
     public static function signup($user,$pass,$email,$phone)
     {
         try {
+            $pass = md5($pass);
             $conn = Database::getDataBaseConnection();
             // Use prepared statement to insert data
             $stmt = $conn->prepare("INSERT INTO `auth` (`username`, `password`, `email`, `phone`, `blocked`, `active`)

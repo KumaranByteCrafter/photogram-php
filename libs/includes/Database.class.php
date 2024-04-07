@@ -15,7 +15,6 @@ class Database
             $password = "kumaran311";
             $dbname = "kumaran_new";
             try {
-                $password = md5($password);
                 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
                 // Set the PDO error mode to exception
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

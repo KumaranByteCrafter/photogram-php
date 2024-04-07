@@ -28,7 +28,9 @@ class User
     return $error;
     }
     public static function login($user,$pass){
-
+        $pass = md5(strrev(md5($pass)));
+        $query = "SELECT * FROM auth WHERE 'username' = '$user'";
+        $conn = Database:: getDataBaseConnection();
     }
 }
 ?>

@@ -49,4 +49,5 @@ class User
             echo "Error: " . $e->getMessage();
         }
 }
+}
 ?>

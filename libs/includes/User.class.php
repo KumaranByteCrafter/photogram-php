@@ -28,9 +28,18 @@ class User
     return $error;
     }
     public static function login($user,$pass){
+        try {
         $pass = md5(strrev(md5($pass)));
         $query = "SELECT * FROM auth WHERE 'username' = '$user'";
         $conn = Database:: getDataBaseConnection();
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $stmt = $conn->prepare($query);
+        }catch (PDOException $e){
+            $a = "Error: " . $e->getMessage(); // Display meaningful error message
+        }
+        
+
+        
     }
 }
 ?>

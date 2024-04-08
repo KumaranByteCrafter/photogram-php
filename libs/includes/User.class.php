@@ -29,17 +29,24 @@ class User
     }
     public static function login($user,$pass){
         try {
-        $pass = md5(strrev(md5($pass)));
-        $query = "SELECT * FROM auth WHERE 'username' = '$user'";
-        $conn = Database:: getDataBaseConnection();
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $conn->prepare($query);
-        }catch (PDOException $e){
-            $a = "Error: " . $e->getMessage(); // Display meaningful error message
-        }
-        
+            $pass = md5(strrev(md5($pass)));
+            $conn = Database::getDataBaseConnection();
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $query = "SELECT * FROM auth WHERE username = :user";
+            $stmt = $conn->prepare($query);
+            $stmt->bindParam(':user', $user);
+            $stmt->execute();
+            $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        
-    }
+            if ($userRow && $userRow['password'] === $pass) {
+                // Login successful
+                return true;
+            } else {
+                // Invalid username or password
+                return false;
+            }
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
 }
 ?>

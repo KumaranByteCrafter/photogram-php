@@ -8,7 +8,7 @@ class User
                 'cost' => 9,
             ];
             $pass = password_hash($pass,PASSWORD_BCRYPT,$options);
-            $conn = Database::getDataBaseConnection();
+            $conn = Database::getConnection();
             // Use prepared statement to insert data
             $stmt = $conn->prepare("INSERT INTO `auth` (`username`, `password`, `email`, `phone`, `blocked`, `active`)
                                     VALUES (:user, :pass, :email, :phone, '0', '1')");
@@ -32,7 +32,7 @@ class User
     }
     public static function login($user,$pass){
         try {
-            $conn = Database::getDataBaseConnection();
+            $conn = Database::getConnection();
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $query = "SELECT * FROM auth WHERE username = :user";
             $stmt = $conn->prepare($query);

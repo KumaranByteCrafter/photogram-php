@@ -7,7 +7,7 @@ class Database
     private static $username = "kumaran";
     private static $password = "kumaran311";
     public static $conn = null;
-    public static function getDataBaseConnection()
+    public static function getConnection()
     {   
         if(Database::$conn == null){
             $servername = "mysql.selfmade.ninja";

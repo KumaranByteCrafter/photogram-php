@@ -36,7 +36,7 @@ class User
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $query = "SELECT * FROM auth WHERE username = :user";
             $stmt = $conn->prepare($query);
-            $stmt->bindParam(':user', $user);
+            $stmt->bindParam(':user', $user);   
             $stmt->execute();
             $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -52,5 +52,6 @@ class User
             echo "Error: " . $e->getMessage();
         }
 }
+
 }
 ?>

@@ -4,7 +4,10 @@ class User
     public static function signup($user,$pass,$email,$phone)
     {
         try {
-            $pass = md5(strrev(md5($pass))); //security through obsecurity
+            $options = [
+                'cost' => 9,
+            ];
+            $pass = password_hash($pass,PASSWORD_BCRYPT,$options);
             $conn = Database::getDataBaseConnection();
             // Use prepared statement to insert data
             $stmt = $conn->prepare("INSERT INTO `auth` (`username`, `password`, `email`, `phone`, `blocked`, `active`)
@@ -29,7 +32,6 @@ class User
     }
     public static function login($user,$pass){
         try {
-            $pass = md5(strrev(md5($pass)));
             $conn = Database::getDataBaseConnection();
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $query = "SELECT * FROM auth WHERE username = :user";
@@ -38,9 +40,10 @@ class User
             $stmt->execute();
             $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if ($userRow && $userRow['password'] === $pass) {
+            //if ($userRow && $userRow['password'] === $pass) {
+            if (password_verify($pass,$userRow['password'])) {
                 // Login successful
-                return true;
+                return $userRow;
             } else {
                 // Invalid username or password
                 return false;

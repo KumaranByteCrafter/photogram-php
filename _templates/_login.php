@@ -6,7 +6,7 @@ if($result){
   ?>
   <main class="container">
   <div class="bg-light p-5 rounded mt-3">
-  <h1>Signup Success</h1>
+  <h1>Login Success</h1>
   <p class="lead">Now can login from <a href="/app/login.php">here</a> </p>
   </div>
   <?php

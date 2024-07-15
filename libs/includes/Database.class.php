@@ -2,10 +2,6 @@
 
 class Database
 {
-    private static $host = "mysql.selfmade.ninja";
-    private static $db_name = "kumaran_new";
-    private static $username = "kumaran";
-    private static $password = "kumaran311";
     public static $conn = null;
     public static function getConnection()
     {   

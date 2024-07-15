@@ -10,10 +10,10 @@ class Database
     public static function getConnection()
     {   
         if(Database::$conn == null){
-            $servername = "mysql.selfmade.ninja";
-            $username = "kumaran";
-            $password = "kumaran311";
-            $dbname = "kumaran_new";
+            $servername = get_config('db_server');
+            $username = get_config('db_username');
+            $password = get_config('db_password');
+            $dbname = get_config('db_name');
             try {
                 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
                 // Set the PDO error mode to exception
@@ -34,5 +34,9 @@ class Database
     public static function disconnect() {
         $conn = null;
         
+    }
+    public function __construct() {
+        $database = new Database();
+        $this->conn = $database->getConnection();
     }
 }

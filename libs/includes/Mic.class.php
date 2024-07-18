@@ -9,6 +9,11 @@ class Mic
     private $light;
     public $price;
     public static $test;
+    public function __call($name,$arguments){
+        print("\nCalling : $name<br>");
+        print_r($arguments);
+        print("<br>");
+    }
     public static function testfunction(){
         print("this is a static function  this can be run without object initialization");
     }

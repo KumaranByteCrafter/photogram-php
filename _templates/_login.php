@@ -1,13 +1,13 @@
 <?php
 $username = $_POST['email_address'];
 $password = $_POST['password'];
-$result = validate_credential( $username, $password );
+$result = validate_credential($username, $password );
 if($result){
   ?>
   <main class="container">
   <div class="bg-light p-5 rounded mt-3">
   <h1>Login Success</h1>
-  <p class="lead">Now can login from <a href="/app/login.php">here</a> </p>
+  <p class="lead">Now can login from <a href="/app/">here</a> </p>
   </div>
   <?php
 }

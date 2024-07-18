@@ -1,7 +1,7 @@
 <?php
 $username = $_POST['email_address'];
 $password = $_POST['password'];
-$result = validate_credential($username, $password );
+$result = validate_credential( $username, $password );
 if($result){
   ?>
   <main class="container">

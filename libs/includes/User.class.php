@@ -55,6 +55,7 @@ class User
             echo "Error: " . $e->getMessage();
         }
 }
+//user object be costructed with both userid and username
 public function __construct($username)
 {
     try {
@@ -67,7 +68,7 @@ public function __construct($username)
         $this->id = null;
 
         // Prepare the query
-        $query = "SELECT id FROM auth WHERE username = :username LIMIT 1";
+        $query = "SELECT id FROM auth WHERE username = :username or id = :username LIMIT 1";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
 
